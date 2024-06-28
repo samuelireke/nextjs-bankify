@@ -30,7 +30,7 @@
 - Zod
 - TailwindCSS
 - Chart.js
-- ShadCN
+- ShadCN.
 
 ## <a name="features">🔋 Features</a>
 
