@@ -42,7 +42,19 @@ const AuthForm = ({ type }: { type: string }) => {
       // Sign up with Appwrite & create palid token
 
       if (type === "sign-up") {
-        const newUser = await signUp(data);
+        const userData = {
+          firstName: data.firstName!,
+          lastName: data.lastName!,
+          address: data.address!,
+          city: data.city!,
+          postCode: data.postCode!,
+          dateOfBirth: data.dateOfBirth!,
+          mobilePhoneNumber: data.mobilePhoneNumber!,
+          email: data.email,
+          password: data.password,
+          passwordConfirm: data.passwordConfirm!
+        }
+        const newUser = await signUp(userData);
         setUser(newUser);
       }
 
@@ -85,11 +97,11 @@ const AuthForm = ({ type }: { type: string }) => {
           </h1>
         </div>
           </header>
-      {/* {user ? ( */}
+      {user ? ( 
         <div className="flex flex-col gap-4">
           <PlaidLink user={user} variant="primary" /> 
         </div>
-      {/* ) : ( */}
+      ) : ( 
         <>
           {" "}
           <Form {...form}>
@@ -201,7 +213,7 @@ const AuthForm = ({ type }: { type: string }) => {
             </Link>
           </footer>
         </>
-      {/* )} */}
+      )} 
     </section>
   );
 };
